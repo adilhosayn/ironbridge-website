@@ -94,9 +94,17 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Map Placeholder */}
-                  <div className="mt-12 h-48 bg-ibg-gray-light rounded overflow-hidden relative flex items-center justify-center border border-ibg-gray">
-                    <span className="text-ibg-gray font-medium">Google Maps Embed Placeholder</span>
+                  {/* Map Embed */}
+                  <div className="mt-12 h-48 rounded overflow-hidden relative border border-ibg-gray">
+                    <iframe
+                      src="https://maps.google.com/maps?q=G-5%20Block%20Melor,%20Jalan%20Perusahaan%202%20Taman%20Taming%20Ria,%2043200%20Balakong%20Malaysia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                 </div>
               </ScrollReveal>

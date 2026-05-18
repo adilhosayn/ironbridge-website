@@ -3,13 +3,40 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { services } from "@/data/services";
 import { useSearchParams } from "next/navigation";
 
+// 1. Moved InputWrapper OUTSIDE the main component
+const InputWrapper = ({ 
+  name, 
+  label, 
+  isFocused, 
+  errors, 
+  children 
+}: { 
+  name: string, 
+  label: string, 
+  isFocused: boolean,
+  errors: any,
+  children: React.ReactNode 
+}) => {
+  return (
+    <div className="relative mb-6">
+      <div className={cn(
+        "absolute -top-2.5 left-3 px-1 text-xs font-medium bg-white transition-colors z-10",
+        isFocused ? "text-ibg-copper" : "text-ibg-gray"
+      )}>
+        {label}
+      </div>
+      {children}
+      <ValidationError prefix={label} field={name} errors={errors} className="text-red-500 text-sm mt-1" />
+    </div>
+  );
+};
+
 export const ContactForm = () => {
-  // Replace "your-formspree-id" with the actual ID once available
-  const [state, handleSubmit] = useForm("your-formspree-id");
+  const [state, handleSubmit] = useForm("xzdwbkbl");
   const [focusedField, setFocusedField] = useState<string | null>(null);
   
   const searchParams = useSearchParams();
@@ -29,27 +56,16 @@ export const ContactForm = () => {
     );
   }
 
-  const InputWrapper = ({ name, label, children }: { name: string, label: string, children: React.ReactNode }) => {
-    const isFocused = focusedField === name;
-    
-    return (
-      <div className="relative mb-6">
-        <div className={cn(
-          "absolute -top-2.5 left-3 px-1 text-xs font-medium bg-white transition-colors z-10",
-          isFocused ? "text-ibg-copper" : "text-ibg-gray"
-        )}>
-          {label}
-        </div>
-        {children}
-        <ValidationError prefix={label} field={name} errors={state.errors} className="text-red-500 text-sm mt-1" />
-      </div>
-    );
-  };
-
   return (
     <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-sm border border-ibg-gray-light">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-        <InputWrapper name="name" label="Full Name">
+        {/* 2. Passed isFocused and errors as props to the wrapper */}
+        <InputWrapper 
+          name="name" 
+          label="Full Name" 
+          isFocused={focusedField === "name"} 
+          errors={state.errors}
+        >
           <input
             id="name"
             type="text"
@@ -61,7 +77,12 @@ export const ContactForm = () => {
           />
         </InputWrapper>
 
-        <InputWrapper name="company" label="Company Name">
+        <InputWrapper 
+          name="company" 
+          label="Company Name" 
+          isFocused={focusedField === "company"} 
+          errors={state.errors}
+        >
           <input
             id="company"
             type="text"
@@ -74,7 +95,12 @@ export const ContactForm = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-        <InputWrapper name="email" label="Email Address">
+        <InputWrapper 
+          name="email" 
+          label="Email Address" 
+          isFocused={focusedField === "email"} 
+          errors={state.errors}
+        >
           <input
             id="email"
             type="email"
@@ -86,7 +112,12 @@ export const ContactForm = () => {
           />
         </InputWrapper>
 
-        <InputWrapper name="phone" label="Phone Number">
+        <InputWrapper 
+          name="phone" 
+          label="Phone Number" 
+          isFocused={focusedField === "phone"} 
+          errors={state.errors}
+        >
           <input
             id="phone"
             type="tel"
@@ -98,7 +129,12 @@ export const ContactForm = () => {
         </InputWrapper>
       </div>
 
-      <InputWrapper name="service" label="Service of Interest">
+      <InputWrapper 
+        name="service" 
+        label="Service of Interest" 
+        isFocused={focusedField === "service"} 
+        errors={state.errors}
+      >
         <select
           id="service"
           name="service"
@@ -114,7 +150,12 @@ export const ContactForm = () => {
         </select>
       </InputWrapper>
 
-      <InputWrapper name="message" label="Your Message">
+      <InputWrapper 
+        name="message" 
+        label="Your Message" 
+        isFocused={focusedField === "message"} 
+        errors={state.errors}
+      >
         <textarea
           id="message"
           name="message"
