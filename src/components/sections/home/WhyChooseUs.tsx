@@ -41,7 +41,7 @@ export const WhyChooseUs = () => {
             const Icon = strength.icon;
             return (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <div className="flex gap-6 p-6 rounded-lg hover:bg-ibg-navy-light/50 transition-colors border border-transparent hover:border-ibg-copper/20">
+                <div className="flex gap-6 p-6 rounded-lg hover:bg-ibg-navy-light/50 active:bg-ibg-navy-light/70 active:scale-[0.98] transition-all duration-300 border border-transparent hover:border-ibg-copper/20">
                   <div className="shrink-0">
                     <div className="w-16 h-16 rounded-full bg-ibg-copper/10 flex items-center justify-center border border-ibg-copper/30">
                       <Icon className="text-ibg-copper w-8 h-8" />

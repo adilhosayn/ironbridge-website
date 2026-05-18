@@ -45,7 +45,7 @@ export const AboutSnapshot = () => {
 
             {directors.map((director, index) => (
               <ScrollReveal key={director.id} delay={0.3 + index * 0.2}>
-                <div className="bg-white p-8 rounded shadow-sm border border-ibg-gray-light hover:border-ibg-copper transition-colors duration-300 h-full flex flex-col justify-between group">
+                <div className="bg-white p-8 rounded shadow-sm border border-ibg-gray-light hover:border-ibg-copper active:scale-[0.98] transition-all duration-300 h-full flex flex-col justify-between group">
                   <div>
                     {director.image ? (
                       <div className="w-16 h-16 mb-6 rounded-full overflow-hidden relative border border-ibg-copper/20 group-hover:scale-110 transition-transform duration-300">

@@ -30,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.97 }}
         className={cn(
-          "inline-flex items-center justify-center rounded-sm transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ibg-copper focus:ring-offset-2",
+          "inline-flex items-center justify-center rounded-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ibg-copper focus:ring-offset-2 active:scale-95 active:opacity-80",
           variants[variant],
           sizes[size],
           fullWidth ? "w-full" : "",

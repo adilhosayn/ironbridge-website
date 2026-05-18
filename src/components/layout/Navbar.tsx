@@ -75,7 +75,7 @@ export const Navbar = () => {
                 key={link.path}
                 href={link.path}
                 className={cn(
-                  "relative text-sm font-medium transition-colors hover:text-ibg-copper-light",
+                  "relative text-sm font-medium transition-all duration-150 hover:text-ibg-copper-light active:opacity-70 active:scale-95",
                   pathname === link.path ? "text-ibg-copper" : "text-white"
                 )}
               >
@@ -95,7 +95,7 @@ export const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-white focus:outline-none transition-transform duration-150 active:scale-90 active:opacity-70"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu className="w-6 h-6" />
@@ -115,7 +115,7 @@ export const Navbar = () => {
             className="fixed inset-0 z-50 bg-ibg-navy/95 backdrop-blur-md flex flex-col pt-20 px-6"
           >
             <button
-              className="absolute top-6 right-6 text-white"
+              className="absolute top-6 right-6 text-white transition-transform duration-150 active:scale-90 active:opacity-70"
               onClick={() => setMobileMenuOpen(false)}
             >
               <X className="w-8 h-8" />
@@ -132,7 +132,7 @@ export const Navbar = () => {
                   <Link
                     href={link.path}
                     className={cn(
-                      "text-3xl font-display font-medium",
+                      "text-3xl font-display font-medium transition-all duration-150 active:opacity-70 active:scale-95 origin-left",
                       pathname === link.path ? "text-ibg-copper" : "text-white"
                     )}
                     onClick={() => setMobileMenuOpen(false)}

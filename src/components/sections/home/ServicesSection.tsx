@@ -45,7 +45,7 @@ export const ServicesSection = () => {
 
             return (
               <ScrollReveal key={service.id} delay={index * 0.1}>
-                <div className="group h-full bg-ibg-navy-light/50 backdrop-blur-md border border-ibg-copper/10 p-8 rounded hover:border-ibg-copper/50 transition-all duration-300 relative overflow-hidden animate-[float_4s_ease-in-out_infinite]" style={{ animationDelay: `${index * 0.5}s` }}>
+                <div className="group h-full bg-ibg-navy-light/50 backdrop-blur-md border border-ibg-copper/10 p-8 rounded hover:border-ibg-copper/50 active:scale-[0.98] transition-all duration-300 relative overflow-hidden animate-[float_4s_ease-in-out_infinite]" style={{ animationDelay: `${index * 0.5}s` }}>
 
                   {/* Hover Gradient Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-ibg-copper/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-x-full group-hover:translate-x-0"></div>
