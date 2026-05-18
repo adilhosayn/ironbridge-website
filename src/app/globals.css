@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ibg-navy: #0A1628;
+  --color-ibg-navy-light: #112240;
+  --color-ibg-copper: #C17A2A;
+  --color-ibg-copper-light: #E8A84C;
+  --color-ibg-gold: #F0C060;
+  --color-ibg-white: #FFFFFF;
+  --color-ibg-gray-light: #F7F7F7;
+  --color-ibg-gray: #9CA3AF;
+  --color-ibg-text: #1A1A2E;
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --animate-ken-burns: ken-burns 10s ease-out forwards;
+  --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(193, 122, 42, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(193, 122, 42, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(193, 122, 42, 0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1A1A2E;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  cursor: default;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
