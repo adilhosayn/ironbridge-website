@@ -30,4 +30,5 @@ export interface Director {
   title: string;
   bio: string;
   image?: string;
+  imagePosition?: string;
 }

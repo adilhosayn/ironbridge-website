@@ -21,7 +21,7 @@ export const Directors = () => {
                       src={director.image}
                       alt={director.name}
                       fill
-                      className="object-cover"
+                      className={`object-cover ${director.imagePosition || 'object-center'}`}
                     />
                   </div>
                 ) : (
