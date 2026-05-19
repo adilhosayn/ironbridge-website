@@ -13,9 +13,9 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", fullWidth, children, ...props }, ref) => {
     const variants = {
-      primary: "bg-ibg-copper text-white hover:bg-ibg-copper-light border border-transparent shadow-md",
-      outline: "bg-transparent text-ibg-copper border border-ibg-copper hover:bg-ibg-copper hover:text-white",
-      ghost: "bg-transparent text-ibg-text hover:bg-ibg-gray-light dark:text-ibg-white dark:hover:bg-ibg-navy-light",
+      primary: "bg-ibg-copper text-white hover:bg-ibg-copper-light active:bg-ibg-copper-light border border-transparent shadow-md",
+      outline: "bg-transparent text-ibg-copper border border-ibg-copper hover:bg-ibg-copper hover:text-white active:bg-ibg-copper active:text-white",
+      ghost: "bg-transparent text-ibg-text hover:bg-ibg-gray-light active:bg-ibg-gray-light dark:text-ibg-white dark:hover:bg-ibg-navy-light dark:active:bg-ibg-navy-light",
     };
 
     const sizes = {

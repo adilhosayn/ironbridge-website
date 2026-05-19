@@ -10,7 +10,7 @@ interface AnimatedCounterProps {
 
 export const AnimatedCounter = ({ value, duration = 2 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {

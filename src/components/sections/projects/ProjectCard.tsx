@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Project } from "@/types";
 import { MapPin, Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
@@ -7,8 +10,13 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const [isTapped, setIsTapped] = useState(false);
+
   return (
-    <div className="group bg-white rounded shadow-sm border border-ibg-copper/10 overflow-hidden hover:shadow-xl active:scale-[0.98] transition-all duration-500 h-full flex flex-col hover:-translate-y-2">
+    <div 
+      className="group bg-white rounded shadow-sm border border-ibg-copper/10 overflow-hidden hover:shadow-xl active:scale-[0.98] transition-all duration-500 h-full flex flex-col lg:hover:-translate-y-2"
+      onClick={() => setIsTapped(!isTapped)}
+    >
 
       {/* Image Placeholder Area */}
       <div className="h-48 bg-ibg-navy relative overflow-hidden flex items-center justify-center">
@@ -16,7 +24,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <span className="text-white opacity-20 font-display text-4xl font-bold uppercase tracking-wider relative z-10">{project.name.split(' ')[0]}</span>
 
         {/* Location Badge (slides up on hover) */}
-        <div className="absolute bottom-0 left-0 right-0 bg-ibg-copper/90 backdrop-blur text-white text-xs py-2 px-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex items-center gap-2">
+        <div className={`absolute bottom-0 left-0 right-0 bg-ibg-copper/90 backdrop-blur text-white text-xs py-2 px-4 transition-transform duration-300 flex items-center gap-2 ${isTapped ? 'translate-y-0' : 'translate-y-full lg:group-hover:translate-y-0'}`}>
           <MapPin size={14} />
           {project.location}
         </div>

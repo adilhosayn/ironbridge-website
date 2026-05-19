@@ -54,7 +54,7 @@ export const Navbar = () => {
             : "bg-transparent py-6"
         )}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto w-full flex items-center justify-between px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <div className="relative w-32 h-20 md:w-40 md:h-24 flex items-center justify-center">
@@ -68,8 +68,8 @@ export const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Center Navigation Links */}
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -88,18 +88,24 @@ export const Navbar = () => {
                 )}
               </Link>
             ))}
-            <Button variant="primary" size="sm" onClick={() => window.location.href = '/contact'}>
-              Get a Quote
-            </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white focus:outline-none transition-transform duration-150 active:scale-90 active:opacity-70"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          {/* Right Action Area */}
+          <div className="flex items-center gap-4">
+            <div className="hidden md:block">
+              <Button variant="primary" size="sm" onClick={() => window.location.href = '/contact'}>
+                Get a Quote
+              </Button>
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className="md:hidden text-white focus:outline-none transition-transform duration-150 active:scale-90 active:opacity-70"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </header>
 

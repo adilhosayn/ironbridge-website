@@ -21,16 +21,22 @@ export const AboutSnapshot = () => {
 
             <ScrollReveal delay={0.4}>
               <div className="space-y-6 text-ibg-text opacity-80 text-lg">
+
+                {/* Origin Story */}
                 <p>
-                  Established in 2011 as Abbasi and Co, IronBridge Global (IBG) has evolved into a premier international trading and supply company based in <i>Malaysia & Pakistan</i>
-                  .
+                  Founded in 2011 by Owner and Director Tahir Mehmood Abbasi, the company originally began its journey as <i>Abbasi and Co</i>. In 2026, through a strategic partnership with the honourable <i>Ali Raza Mangi</i>, the leadership mutually decided to expand and rebrand the enterprise into the <strong className="font-semibold text-ibg-navy">IronBridge Global Group of Companies (IBG)</strong>.
                 </p>
+
+                {/* Company Overview */}
                 <p>
-                  We specialize in the trade of scrap, industrial supply, and international sourcing. Over the last 15 years, we have successfully managed over 20 large-scale projects across 6 countries, maintaining a 100% on-time delivery record.
+                  IronBridge Global (IBG) is a specialized trading company operating in the field of scrap materials, industrial supply, and international import/export. With extensive experience across major infrastructure and government projects, the company has built a strong reputation for delivering reliable, timely, and high-quality supply solutions.
                 </p>
+
+                {/* Blockquote / Vision Statement */}
                 <p className="font-serif italic font-medium text-ibg-navy border-l-4 border-ibg-copper pl-4 py-2 my-8 bg-ibg-gray-light">
-                  "Our commitment is to bridge global markets with local demand, ensuring quality, reliability and precision in every transaction."
+                  "IBG acts as a bridge between global sourcing markets and local demand, ensuring efficient trade and long-term partnerships."
                 </p>
+
                 <Link href="/about" className="inline-block mt-4">
                   <Button variant="outline">Read Full Story &rarr;</Button>
                 </Link>
@@ -48,11 +54,11 @@ export const AboutSnapshot = () => {
                 <div className="bg-white p-8 rounded shadow-sm border border-ibg-gray-light hover:border-ibg-copper active:scale-[0.98] transition-all duration-300 h-full flex flex-col justify-between group">
                   <div>
                     {director.image ? (
-                      <div className="w-16 h-16 mb-6 rounded-full overflow-hidden relative border border-ibg-copper/20 group-hover:scale-110 transition-transform duration-300">
-                        <Image src={director.image} alt={director.name} fill className="object-cover" />
+                      <div className="w-16 h-16 mb-6 rounded-full overflow-hidden relative border border-ibg-copper/20 md:group-hover:scale-110 transition-transform duration-300">
+                        <Image src={director.image} alt={director.name} fill sizes="64px" className="object-cover" />
                       </div>
                     ) : (
-                      <div className="w-16 h-16 bg-ibg-navy rounded-full mb-6 flex items-center justify-center text-ibg-copper group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 bg-ibg-navy rounded-full mb-6 flex items-center justify-center text-ibg-copper md:group-hover:scale-110 transition-transform duration-300">
                         <span className="text-xl font-display font-bold">
                           {director.name.split(' ').map(n => n[0]).join('')}
                         </span>

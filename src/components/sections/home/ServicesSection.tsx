@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
@@ -15,6 +18,8 @@ const iconMap: Record<string, any> = {
 };
 
 export const ServicesSection = () => {
+  const [tappedId, setTappedId] = useState<string | null>(null);
+
   return (
     <section className="py-24 bg-ibg-navy relative overflow-hidden">
       {/* Background decoration */}
@@ -45,17 +50,21 @@ export const ServicesSection = () => {
 
             return (
               <ScrollReveal key={service.id} delay={index * 0.1}>
-                <div className="group h-full bg-ibg-navy-light/50 backdrop-blur-md border border-ibg-copper/10 p-8 rounded hover:border-ibg-copper/50 active:scale-[0.98] transition-all duration-300 relative overflow-hidden animate-[float_4s_ease-in-out_infinite]" style={{ animationDelay: `${index * 0.5}s` }}>
+                <div 
+                  className={`group h-full bg-ibg-navy-light/50 backdrop-blur-md border p-8 rounded active:scale-[0.98] transition-all duration-300 relative overflow-hidden animate-[float_4s_ease-in-out_infinite] ${tappedId === service.id ? 'border-ibg-copper/50' : 'border-ibg-copper/10 lg:hover:border-ibg-copper/50'}`}
+                  style={{ animationDelay: `${index * 0.5}s` }}
+                  onClick={() => setTappedId(tappedId === service.id ? null : service.id)}
+                >
 
                   {/* Hover Gradient Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-ibg-copper/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-x-full group-hover:translate-x-0"></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br from-ibg-copper/10 to-transparent transition-opacity duration-500 transform ${tappedId === service.id ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full lg:group-hover:opacity-100 lg:group-hover:translate-x-0'}`}></div>
 
                   <div className="relative z-10">
-                    <div className="w-14 h-14 bg-ibg-navy border border-ibg-copper/20 flex items-center justify-center rounded-sm mb-6 text-ibg-copper group-hover:bg-ibg-copper group-hover:text-white transition-colors duration-300 group-hover:rotate-6">
+                    <div className={`w-14 h-14 border flex items-center justify-center rounded-sm mb-6 transition-colors duration-300 ${tappedId === service.id ? 'bg-ibg-copper text-white rotate-6 border-transparent' : 'bg-ibg-navy border-ibg-copper/20 text-ibg-copper lg:group-hover:bg-ibg-copper lg:group-hover:text-white lg:group-hover:rotate-6'}`}>
                       {IconComponent && <IconComponent size={28} strokeWidth={1.5} />}
                     </div>
 
-                    <h3 className="text-xl font-display font-bold text-white mb-3 group-hover:text-ibg-copper-light transition-colors">{service.title}</h3>
+                    <h3 className={`text-xl font-display font-bold mb-3 transition-colors ${tappedId === service.id ? 'text-ibg-copper-light' : 'text-white lg:group-hover:text-ibg-copper-light'}`}>{service.title}</h3>
                     <p className="text-ibg-gray text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
@@ -69,9 +78,9 @@ export const ServicesSection = () => {
                       ))}
                     </ul>
 
-                    <Link href={`/services#${service.id}`} className="text-ibg-copper text-sm font-medium hover:text-white transition-colors inline-flex items-center gap-1">
+                    <Link href={`/services#${service.id}`} className={`text-sm font-medium transition-colors inline-flex items-center gap-1 ${tappedId === service.id ? 'text-white' : 'text-ibg-copper lg:hover:text-white'}`}>
                       Learn more
-                      <span className="transform transition-transform group-hover:translate-x-1">&rarr;</span>
+                      <span className={`transform transition-transform ${tappedId === service.id ? 'translate-x-1' : 'lg:group-hover:translate-x-1'}`}>&rarr;</span>
                     </Link>
                   </div>
                 </div>

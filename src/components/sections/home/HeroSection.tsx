@@ -14,10 +14,10 @@ export const HeroSection = () => {
 
   const headlineText = "IronBridge Global".split(" ");
 
-  if (!mounted) return <div className="h-screen bg-ibg-navy" />; // SSR placeholder
+  if (!mounted) return <div className="min-h-[100dvh] bg-ibg-navy" />; // SSR placeholder
 
   return (
-    <section className="relative h-screen w-full flex items-center bg-ibg-navy overflow-hidden">
+    <section className="relative min-h-[100dvh] w-full flex items-center bg-ibg-navy overflow-hidden">
       {/* Background with Ken Burns Effect */}
       <div className="absolute inset-0 z-0 bg-[url('/hero-bg-placeholder.jpg')] bg-cover bg-center bg-no-repeat animate-[ken-burns_10s_ease-out_forwards] opacity-30 mix-blend-overlay"></div>
 
@@ -31,13 +31,13 @@ export const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12 mt-16">
+      <div className="container relative z-10 mx-auto px-6 md:px-12 mt-28 md:mt-16 pb-32 md:pb-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block py-1 px-3 mb-6 border border-ibg-copper/40 text-ibg-copper text-sm font-medium tracking-widest uppercase rounded-full backdrop-blur-sm">
+          <span className="inline-block py-1 px-2 md:px-3 mb-6 border border-ibg-copper/40 text-ibg-copper text-[10px] md:text-sm font-medium tracking-wider md:tracking-widest uppercase rounded-full backdrop-blur-sm whitespace-nowrap">
             EST. 2011 · PAKISTAN · MALAYSIA · GLOBAL
           </span>
         </motion.div>
