@@ -45,11 +45,8 @@ const OfficeCard = ({
   return (
     <motion.div
       variants={itemVariants}
-      onViewportEnter={() => {
-        setTimeout(() => setIsRevealed(true), 300); // Cinematic delay for hover effects to bloom after fade-in
-      }}
-      viewport={{ once: true, amount: 0.3 }}
-      className={`group relative rounded-[2rem] bg-ibg-navy p-[1px] overflow-hidden transition-all duration-1000 shadow-2xl h-full flex flex-col ${isRevealed ? "max-lg:-translate-y-2 max-lg:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)]" : ""
+      onClick={() => setIsRevealed(!isRevealed)}
+      className={`cursor-pointer lg:cursor-default group relative rounded-[2rem] bg-ibg-navy p-[1px] overflow-hidden transition-all duration-1000 shadow-2xl h-full flex flex-col ${isRevealed ? "max-lg:-translate-y-2 max-lg:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)]" : ""
         } lg:hover:-translate-y-2 lg:hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)]`}
     >
       {/* Subtle Outer Glow */}
@@ -109,7 +106,7 @@ const OfficeCard = ({
             </div>
             <div>
               <span className="block text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-1">Phone</span>
-              <a href={`tel:${phone.replace(/\s+/g, '')}`} className={`text-[15px] transition-colors duration-700 font-medium ${isRevealed ? "max-lg:text-ibg-copper" : "max-lg:text-stone-300"
+              <a onClick={(e) => e.stopPropagation()} href={`tel:${phone.replace(/\s+/g, '')}`} className={`text-[15px] transition-colors duration-700 font-medium ${isRevealed ? "max-lg:text-ibg-copper" : "max-lg:text-stone-300"
                 } lg:text-stone-300 lg:hover:text-ibg-copper`}>{phone}</a>
             </div>
           </div>
@@ -121,7 +118,7 @@ const OfficeCard = ({
             </div>
             <div>
               <span className="block text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-1">Email</span>
-              <a href={`mailto:${email}`} className={`text-[15px] transition-colors duration-700 font-medium ${isRevealed ? "max-lg:text-ibg-copper" : "max-lg:text-stone-300"
+              <a onClick={(e) => e.stopPropagation()} href={`mailto:${email}`} className={`text-[15px] transition-colors duration-700 font-medium ${isRevealed ? "max-lg:text-ibg-copper" : "max-lg:text-stone-300"
                 } lg:text-stone-300 lg:hover:text-ibg-copper`}>{email}</a>
             </div>
           </div>
