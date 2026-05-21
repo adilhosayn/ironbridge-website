@@ -4,7 +4,6 @@ export const projects: Project[] = [
   {
     id: "neelum-jhelum",
     name: "Neelum–Jhelum Project",
-    shortName: "NJ",
     location: "Pakistan",
     year: "2013–2015",
     duration: "2 Years",

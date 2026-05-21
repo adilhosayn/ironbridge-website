@@ -21,7 +21,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* Image Placeholder Area */}
       <div className="h-48 bg-ibg-navy relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-ibg-navy-light opacity-50"></div>
-        <span className="text-white opacity-20 font-display text-4xl font-bold uppercase tracking-wider relative z-10">{project.name.split(' ')[0]}</span>
+        <span className="text-white opacity-20 md:opacity-5 font-display text-xl sm:text-2xl md:text-3xl px-4 font-bold uppercase tracking-widest whitespace-nowrap relative z-10">{project.name.split(' ')[0]}</span>
 
         {/* Location Badge (slides up on hover) */}
         <div className={`absolute bottom-0 left-0 right-0 bg-ibg-copper/90 backdrop-blur text-white text-xs py-2 px-4 transition-transform duration-300 flex items-center gap-2 ${isTapped ? 'translate-y-0' : 'translate-y-full lg:group-hover:translate-y-0'}`}>
