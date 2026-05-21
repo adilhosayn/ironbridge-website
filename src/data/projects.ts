@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     id: "neelum-jhelum",
     name: "Neelum–Jhelum Project",
+    shortName: "NJ",
     location: "Pakistan",
     year: "2013–2015",
     duration: "2 Years",
@@ -22,6 +23,7 @@ export const projects: Project[] = [
   {
     id: "gilgit-baltistan",
     name: "Gilgit-Baltistan Projects",
+    shortName: "GB",
     location: "Skardu, Astore, Janglot",
     year: "2016–2020",
     duration: "Various",

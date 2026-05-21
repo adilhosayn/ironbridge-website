@@ -1,11 +1,16 @@
+"use client";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { directors } from "@/data/directors";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export const AboutSnapshot = () => {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
   return (
     <section className="py-24 bg-ibg-white relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -49,9 +54,15 @@ export const AboutSnapshot = () => {
             {/* Decorative background element */}
             <div className="absolute -inset-4 bg-ibg-gray-light rounded-xl -z-10 transform translate-x-4 translate-y-4"></div>
 
-            {directors.map((director, index) => (
+            {directors.map((director, index) => {
+              const isActive = activeCard === director.id;
+              
+              return (
               <ScrollReveal key={director.id} delay={0.3 + index * 0.2}>
-                <div className="bg-white p-8 rounded shadow-sm border border-ibg-gray-light hover:border-ibg-copper active:scale-[0.98] transition-all duration-300 h-full flex flex-col justify-between group">
+                <div 
+                  onClick={() => setActiveCard(isActive ? null : director.id)}
+                  className={`bg-white p-8 rounded-xl shadow-sm border border-ibg-gray-light border-t-[3px] border-t-ibg-copper transition-colors duration-300 h-full flex flex-col justify-between group lg:hover:-translate-y-1 lg:hover:shadow-[0_10px_30px_-15px_rgba(200,136,42,0.5)] lg:hover:border-t-ibg-navy cursor-pointer lg:cursor-default ${isActive ? "max-lg:border-t-ibg-navy" : ""}`}
+                >
                   <div>
                     {director.image ? (
                       <div className="w-16 h-16 mb-6 rounded-full overflow-hidden relative border border-ibg-copper/20 md:group-hover:scale-110 transition-transform duration-300">
@@ -66,13 +77,19 @@ export const AboutSnapshot = () => {
                     )}
                     <h3 className="text-xl font-display font-bold text-ibg-navy mb-1">{director.name}</h3>
                     <p className="text-ibg-copper text-sm font-medium mb-4 uppercase tracking-wider">{director.title}</p>
+                    <p className="text-ibg-text/60 text-xs italic mb-4 pb-4 border-b border-ibg-gray-light">
+                      {director.id === 'ali-mangi' 
+                        ? "15+ years in complex logistics & supply chain" 
+                        : "Co-founder | 20+ years in international trade"}
+                    </p>
                     <p className="text-ibg-text opacity-70 text-sm line-clamp-4">
                       {director.bio}
                     </p>
                   </div>
                 </div>
               </ScrollReveal>
-            ))}
+            );
+            })}
           </div>
 
         </div>

@@ -13,7 +13,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isTapped, setIsTapped] = useState(false);
 
   return (
-    <div 
+    <div
       className="group bg-white rounded shadow-sm border border-ibg-copper/10 overflow-hidden hover:shadow-xl active:scale-[0.98] transition-all duration-500 h-full flex flex-col lg:hover:-translate-y-2"
       onClick={() => setIsTapped(!isTapped)}
     >

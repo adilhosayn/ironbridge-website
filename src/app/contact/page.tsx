@@ -162,10 +162,7 @@ export default function ContactPage() {
   return (
     <div className="pt-24 bg-ibg-gray-light min-h-screen">
       {/* Hero Section */}
-      <section className="bg-ibg-navy py-24 relative overflow-hidden">
-        {/* Subtle background glow for hero */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-ibg-copper/10 rounded-full blur-[120px] pointer-events-none"></div>
-
+      <section className="bg-[#0B132B] py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -174,7 +171,7 @@ export default function ContactPage() {
           >
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">Contact Us</h1>
             <div className="w-24 h-1.5 bg-ibg-copper mx-auto mb-10 rounded-full"></div>
-            <p className="text-xl text-stone-300 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
               Get in touch with our team for inquiries, quotes, and international logistics partnerships.
             </p>
           </motion.div>

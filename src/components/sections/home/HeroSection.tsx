@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
+  const [hoveredButton, setHoveredButton] = useState<'explore' | 'services' | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -77,8 +78,24 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <Button size="lg" onClick={() => window.location.href = '/projects'}>Explore Our Projects</Button>
-          <Button variant="outline" size="lg" onClick={() => window.location.href = '/services'}>Our Services</Button>
+          <Button 
+            size="lg" 
+            variant={hoveredButton === 'services' ? 'outline' : 'primary'}
+            onClick={() => window.location.href = '/projects'}
+            onMouseEnter={() => setHoveredButton('explore')}
+            onMouseLeave={() => setHoveredButton(null)}
+          >
+            Explore Our Projects
+          </Button>
+          <Button 
+            variant={hoveredButton === 'services' ? 'primary' : 'outline'} 
+            size="lg" 
+            onClick={() => window.location.href = '/services'}
+            onMouseEnter={() => setHoveredButton('services')}
+            onMouseLeave={() => setHoveredButton(null)}
+          >
+            Our Services
+          </Button>
         </motion.div>
       </div>
 
