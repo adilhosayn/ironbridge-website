@@ -9,6 +9,7 @@ export interface Service {
 export interface Project {
   id: string;
   name: string;
+  shortName?: string;
   location: string;
   year: string | number;
   duration: string;
